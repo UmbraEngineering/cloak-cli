@@ -1,18 +1,18 @@
 
-# dagger-cli
+# cloak-cli
 
 
 
 ### Install
 
 ```bash
-$ npm instal -g dagger-cli
+$ npm instal -g cloak-cli
 ```
 
 ##### Install bash completion
 
 ```bash
-$ dagger completion install
+$ cloak completion install
 ```
 
 
@@ -25,17 +25,17 @@ $ dagger completion install
 $ cd Projects
 $ mkdir new-project
 $ cd new-project
-$ dagger init
+$ cloak init
 ```
 
 ##### create a new model in the project
 
 ```bash
-$ dagger create model person
+$ cloak create model person
 ```
 
 ##### destroy a model
 
 ```bash
-$ dagger destroy model person
+$ cloak destroy model person
 ```
