@@ -1,0 +1,45 @@
+#!/usr/bin/env node
+
+require('../lib/utils');
+
+var path     = require('path');
+var command  = require('command');
+var program  = require('commander');
+
+program
+	.option('-d, --deps', 'install cloak build dependencies')
+	.parse(process.argv);
+
+// --------------------------------------------------------
+
+var cwd = process.cwd();
+
+output('Creating initial files...');
+
+// Build directory structure
+mkdir(path.join(cwd, 'public'));
+mkdir(path.join(cwd, 'public/views'));
+mkdir(path.join(cwd, 'public/models'));
+mkdir(path.join(cwd, 'public/routers'));
+
+// Add the app.js file
+copyFromTemplate('index.html');
+
+// Add the package.json file
+copyFromTemplate('package.json');
+
+// Add the package.json file
+copyFromTemplate('Gruntfile.js');
+
+output(' Done.\n');
+
+// Install dependencies with npm if needed
+if (program.deps) {
+	output('Installing cloak build dependencies...');
+
+	command.open(cwd)
+		.exec('npm', ['install'])
+		.then(function() {
+			output(' Done.\n');
+		});
+}

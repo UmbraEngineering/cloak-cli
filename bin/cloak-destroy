@@ -1,0 +1,9 @@
+#!/usr/bin/env node
+
+var program = require('commander');
+
+program
+	.command('view <name>', 'destroy a view')
+	.command('model <name>', 'destroy a model')
+	.command('router <name>', 'destroy a endpoint')
+	.parse(process.argv);

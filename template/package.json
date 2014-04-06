@@ -1,0 +1,16 @@
+{
+  "name": "cloak-app",
+  "version": "0.0.0",
+  "description": "An app built with cloak.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "none",
+  "dependencies": {
+    "grunt": "latest",
+    "grunt-contrib-concat": "latest",
+    "common.js": "latest"
+  }
+}

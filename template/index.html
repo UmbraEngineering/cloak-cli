@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Cloak.js Project</title>
+</head>
+<body>
+	
+	<script src="/build/lib.js"></script>
+	<script src="/build/app.js"></script>
+	<script>
+
+		// Add the lib directory to the require path list. This is required
+		// for cloak to work correctly, but you can also add any other paths
+		// here that you would like.
+		require.paths.push('/lib');
+
+		// Start you app's router
+		var MainRouter = require('routers/main.js');
+		var router = new MainRouter();
+
+	</script>
+
+</body>
+</html>

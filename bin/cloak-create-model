@@ -1,0 +1,50 @@
+#!/usr/bin/env node
+
+require('../lib/utils');
+
+var program = require('commander');
+
+program
+	.usage('<name> [options]')
+	.option('-g, --use-global', 'use the global template')
+	.option('-l, --use-local', 'use the local template')
+	.option('-t, --template <template>', 'what template should be used', 'base')
+	.option('-f, --fields <fields>', 'comma delimited list of fields to add to the model')
+	.parse(process.argv);
+
+var name = program.args[0];
+var source = program.useLocal ? 'local' : (program.useGlobal ? 'global' : null);
+var template = program.template || 'base';
+
+output('Creating new model "' + name + '"...');
+
+var data = {
+	name: {
+		hyphen: name,
+		camel: name.replace(/-([a-z])/g, function(match, letter) {
+			return letter.toUpperCase();
+		}),
+		class: name.replace(/(^|-)([a-z])/g, function(match, start, letter) {
+			return letter.toUpperCase();
+		})
+	},
+	fields: ((program.fields && program.fields.split(',')) || [ ]).map(function(field) {
+		field = field.split(':');
+		return {
+			name: field[0],
+			type: (field.length === 1) ? '' : field[1]
+		};
+	})
+};
+
+var file = 'models/' + data.name.hyphen + '.js';
+if (fileExists(file)) {
+	output('\n');
+	output.error('ERROR: Cannot create model "' + name + '"; File already exists.\n');
+	process.exit(1);
+	return;
+}
+
+renderFile(templateFile('model/' + template + '.js', source), appFile(file), data);
+
+output(' Done.\n');

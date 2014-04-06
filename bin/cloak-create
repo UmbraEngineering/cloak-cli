@@ -1,0 +1,9 @@
+#!/usr/bin/env node
+
+var program = require('commander');
+
+program
+	.command('view <name>', 'create a new view')
+	.command('model <name>', 'create a new model')
+	.command('router <name>', 'create a new endpoint')
+	.parse(process.argv);

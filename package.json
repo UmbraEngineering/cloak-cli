@@ -1,0 +1,32 @@
+{
+  "name": "cloak-cli",
+  "version": "0.0.1",
+  "preferGlobal": true,
+  "description": "Scaffolding cli tool for cloak.js projects",
+  "bin": {
+    "cloak": "bin/cloak",
+    "cloak-init": "bin/cloak-init",
+    "cloak-create": "bin/cloak-create",
+    "cloak-create-view": "bin/cloak-create-view",
+    "cloak-create-model": "bin/cloak-create-model",
+    "cloak-destroy": "bin/cloak-destroy",
+    "cloak-destroy-view": "bin/cloak-destroy-view",
+    "cloak-destroy-model": "bin/cloak-destroy-model",
+    "cloak-config": "bin/cloak-config",
+    "cloak-config-template": "bin/cloak-config-template"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "https://github.com/UmbraEngineering/cloak-cli",
+  "author": "James Brumond <james@jbrumond.me> (http://www.jbrumond.me)",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "~2.1.0",
+    "command": "0.0.4",
+    "handlebars": "~2.0.0-alpha.2",
+    "co-prompt": "^1.0.0",
+    "tabtab": "0.0.2",
+    "exists-patch": "0.0.0"
+  }
+}
